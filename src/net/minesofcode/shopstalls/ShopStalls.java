@@ -55,7 +55,7 @@ public class ShopStalls extends JavaPlugin {
 		
 		CommandManager.populateCommandList(); // Adds all of the command names to a list so they can be registered
 		
-		getCommand("events").setExecutor(cm); // Setup Events command
+		getCommand("shopstalls").setExecutor(cm); // Setup Events command
 		
 		for (String cmdName : CommandManager.commandStrings) {
 			getCommand(cmdName).setExecutor(cm);

@@ -48,13 +48,23 @@ public class Create extends SubCommand {
 			RegionManager regionManager = worldGuard.getRegionManager(p.getWorld());
 			ApplicableRegionSet set = regionManager.getApplicableRegions(pt);
 			
+			String shopName = "";
+			for (int i = 2; i < args.length; i++) {
+				shopName += args[i] + " ";
+			}
+			shopName = shopName.substring(0, shopName.length() - 1); // Remove trailing space
+			
 			for (ProtectedRegion region : set.getRegions()) {
 				
 				if (region.getId().startsWith("shopstall")) {
 					region.getMembers().addPlayer(member.getName());
-					region.setFlag(DefaultFlag.GREET_MESSAGE, "&aWelcome to &b" + args[2] + "&a!");
+					region.setFlag(DefaultFlag.GREET_MESSAGE, "&aWelcome to &b" + shopName + "&a!");
+					good(p, "Shop stall &b" + shopName + " &acreated at &e" + region.getId() + "&a.");
+					return;
 				}
 			}
+			
+			
 		}
 	}
 	
