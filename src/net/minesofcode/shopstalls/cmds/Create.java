@@ -13,7 +13,6 @@ import com.sk89q.worldguard.protection.managers.RegionManager;
 import com.sk89q.worldguard.protection.regions.ProtectedRegion;
 
 import net.milkbowl.vault.economy.EconomyResponse;
-import net.milkbowl.vault.economy.EconomyResponse.ResponseType;
 import net.minesofcode.shopstalls.ShopStalls;
 
 public class Create extends SubCommand {
@@ -35,13 +34,6 @@ public class Create extends SubCommand {
 				return;
 			}
 			
-			EconomyResponse response = ShopStalls.econ.withdrawPlayer(member, Double.parseDouble(args[1]));
-			
-			if (response.equals(ResponseType.FAILURE)) {
-				severe(p, "The selected player does not have enough money for this shop stall.");
-				return;
-			}
-			
 			WorldGuardPlugin worldGuard = ShopStalls.getWorldGuard();
 			Location loc = p.getLocation();
 			Vector pt = new Vector(loc.getX(), loc.getY(), loc.getZ());
@@ -57,6 +49,18 @@ public class Create extends SubCommand {
 			for (ProtectedRegion region : set.getRegions()) {
 				
 				if (region.getId().startsWith("shopstall")) {
+					if (region.getMembers().size() > 0) {
+						severe(p, "A shop stall already exists here. Type &a/shopstalls remove &cto remove this stall.");
+						return;
+					}
+					
+					EconomyResponse response = ShopStalls.econ.withdrawPlayer(member, Double.parseDouble(args[1]));
+					
+					if (!response.transactionSuccess()) {
+						severe(p, "The selected player does not have enough money for this shop stall.");
+						return;
+					}
+					
 					region.getMembers().addPlayer(member.getName());
 					region.setFlag(DefaultFlag.GREET_MESSAGE, "&aWelcome to &b" + shopName + "&a!");
 					good(p, "Shop stall &b" + shopName + " &acreated at &e" + region.getId() + "&a.");

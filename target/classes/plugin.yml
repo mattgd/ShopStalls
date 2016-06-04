@@ -14,3 +14,6 @@ permissions:
    shopstalls.create:
       description: Allows you to create shop stalls
       default: op
+   shopstalls.remove:
+      description: Allows you to remove shop stalls
+      default: op

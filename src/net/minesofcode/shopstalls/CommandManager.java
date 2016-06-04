@@ -11,6 +11,7 @@ import org.bukkit.entity.Player;
 
 import net.minesofcode.shopstalls.cmds.Create;
 import net.minesofcode.shopstalls.cmds.Reload;
+import net.minesofcode.shopstalls.cmds.Remove;
 import net.minesofcode.shopstalls.cmds.SubCommand;
 
 public class CommandManager implements CommandExecutor {
@@ -21,6 +22,7 @@ public class CommandManager implements CommandExecutor {
 	public void setup() {
 		commands.add(new Create());
 		commands.add(new Reload());
+		commands.add(new Remove());
 	}
 	
 	// Gets a list of all of the command Strings from the CommandManager

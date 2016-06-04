@@ -14,7 +14,7 @@ public class MessageManager {
 		return instance;
 	}
 	
-	private String prefix = ChatColor.LIGHT_PURPLE + "[" + ChatColor.YELLOW + "ShopStalls" + ChatColor.LIGHT_PURPLE + "] ";
+	private String prefix = ChatColor.GREEN + "[" + ChatColor.AQUA + "ShopStalls" + ChatColor.GREEN + "] ";
 	
 	public void info(CommandSender s, String msg) {
 		msg(s, ChatColor.YELLOW, msg);
