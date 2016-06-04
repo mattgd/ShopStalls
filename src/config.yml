@@ -1,0 +1,9 @@
+events:
+  Wither:
+    description: Be the first to kill the Wither
+    reward: 4000.0
+    complete: false
+  EnderDragon:
+    description: Kill the Ender Dragon
+    reward: 6000.0
+    complete: false

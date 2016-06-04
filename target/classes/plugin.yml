@@ -1,0 +1,16 @@
+name: ShopStalls
+version: 1.0
+main: net.minesofcode.shopstalls.ShopStalls
+author: mattgd
+description: The official Mines of Code ShopStalls plugin.
+depend: [Vault, WorldGuard]
+
+commands:
+   shopstalls:
+      description: ShopStalls plugin main command.
+      usage: /<command> [args]
+      permission: shopstalls.use
+permissions:
+   shopstalls.create:
+      description: Allows you to create shop stalls
+      default: op

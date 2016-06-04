@@ -1,0 +1,6 @@
+net\minesofcode\shopstalls\CommandManager.class
+net\minesofcode\shopstalls\cmds\Create.class
+net\minesofcode\shopstalls\cmds\Reload.class
+net\minesofcode\shopstalls\cmds\SubCommand.class
+net\minesofcode\shopstalls\MessageManager.class
+net\minesofcode\shopstalls\ShopStalls.class

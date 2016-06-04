@@ -1,0 +1,26 @@
+name: Events
+version: 1.0
+main: net.minesofcode.events.Events
+author: mattgd
+description: The official Mines of Code Events plugin.
+softdepend: Vault
+
+commands:
+   events:
+      description: Events plugin main command.
+      usage: /<command> [args]
+      permission: events.use
+   givethanks:
+      description: Thanksgiving event command.
+      usage: /<command> [args]
+      permission: events.givethanks
+permissions:
+   events.add:
+      description: Allows you to create events
+      default: op
+   events.check:
+      description: Allows you to check the events that are currently running
+      default: true
+   events.reload:
+      description: Allows you reload the Events plugin
+      default: op
